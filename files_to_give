@@ -1,0 +1,15 @@
+Give them
+
+Files	Why
+.claude/agents/ (all 5: ai-workflow-agent, requirement-readiness-agent, engineering-planner-agent, engineering-agent, verification-agent)	The agents that run the journey.
+.claude/skills/jira-requirement-review/SKILL.md	The readiness agent calls it.
+.claude/hooks/check-requirement-ready.ps1 and .claude/settings.json	The stop hook that blocks until the requirement is READY. Give both or neither, because the settings file points at the script.
+generic_prompt.md	The generic engineering rules the agents are told to follow.
+CLAUDE.md	Explains the setup to Claude Code in their copy.
+requirements/requirements.md	The starting requirement (HC-102).
+readiness_prompt.md, planner_prompt.md, combine_prompt.md	The prompts to run each stage, or both together.
+Don't give them
+
+.claude/REQUIREMENT_READY: With it present, the stop hook passes and the readiness review is effectively skipped.
+requirements/HC-102-clarifications.md: It holds your answers, so it works as an answer key. Students should produce their own.
+JIRA_2.pdf: It is an older, thinner ticket for the same feature, and it needs Poppler to read. It would invite the two-sources confusion we hit. Give it only if you want that as a deliberate exercise.
